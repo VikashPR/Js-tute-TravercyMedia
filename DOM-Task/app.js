@@ -9,7 +9,11 @@ const filter = document.querySelector('#filter');
 loadEventListners();
 
 function loadEventListners() {
+    // Adding Task 
     form.addEventListener('submit', addTask);
+    // Remove Task
+    taskList.addEventListener('click', removeTask);
+
 }
 
 function addTask(e) {
@@ -27,5 +31,12 @@ function addTask(e) {
         task.value = "";
         e.preventDefault();
     }
+}
 
+function removeTask(e){
+    if(e.target.parentElement.classList.contains('delete-item')){
+        if(confirm("Are You Sure")){
+            e.target.parentElement.parentElement.remove();
+        }
+    }
 }
